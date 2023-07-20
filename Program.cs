@@ -14,7 +14,7 @@ namespace menu
             while (asdfg)
             {
                 Console.WriteLine("merhaba " + input + "menüden bir şey sec");
-                Console.WriteLine("Toplama (t)çıkarma (c) çarpma (x) bölme (b) yüzde işlemi (y) kar hesaplama (k) dikdörtgen hesaplama (d)");
+                Console.WriteLine("Toplama (t)çıkarma (c) çarpma (x) bölme (b) yüzde işlemi (y) kar hesaplama (k) dikdörtgen hesaplama (d) yuzyil hesaplama(yy)");
                 string secim = Console.ReadLine();
 
                 switch (secim)
@@ -46,7 +46,9 @@ namespace menu
                     case "d":
                         dikdortgen();
                         break;
-
+                    case "yy":
+                        yuzyil();
+                        break;
                     case "q":
                         asdfg = false;
                         break;
@@ -239,7 +241,25 @@ namespace menu
             mutluturkiye(cevre);
         }
 
-        static void mutluturkiye(int value)
+            static void yuzyil()
+            {
+                Console.WriteLine("bir yil gir");
+                if (!int.TryParse(Console.ReadLine(), out int yuzyil))
+                {
+                    Console.WriteLine("Geçerli bir yıl giriniz.");
+                    return;
+                }
+
+                int yy = (yuzyil + 99) / 100;
+
+
+                Console.WriteLine("{0}. yüzyıl", yy);
+                mutluturkiye(yy);
+            }
+        
+
+
+    static void mutluturkiye(int value)
         {
             if (value % 15 == 0)
                 Console.Write("NE MUTLU ");
