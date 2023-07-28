@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 
 namespace menu
 {
@@ -14,7 +15,7 @@ namespace menu
             while (asdfg)
             {
                 Console.WriteLine("merhaba " + input + "menüden bir şey sec");
-                Console.WriteLine("Toplama (t)çıkarma (c) çarpma (x) bölme (b) yüzde işlemi (y) kar hesaplama (k) dikdörtgen hesaplama (d) yuzyil hesaplama(yy)");
+                Console.WriteLine("Toplama (t)çıkarma (c) çarpma (x) bölme (b) yüzde işlemi (y) kar hesaplama (k) dikdörtgen hesaplama (d) yuzyil hesaplama(yy) array target(a) siralama(s)");
                 string secim = Console.ReadLine();
 
                 switch (secim)
@@ -48,6 +49,12 @@ namespace menu
                         break;
                     case "yy":
                         yuzyil();
+                        break;
+                    case "a":
+                        dizi();
+                        break;
+                    case "s":
+                        siralama();
                         break;
                     case "q":
                         asdfg = false;
@@ -257,6 +264,62 @@ namespace menu
                 mutluturkiye(yy);
             }
         
+            static void dizi()
+            {
+                Console.Write("Kaç elemanlı bir dizi oluşturmak istiyorsunuz ");
+                int sayiadedi = Convert.ToInt32(Console.ReadLine());
+
+                int[] array = new int[sayiadedi];
+
+                for (int i = 0; i < sayiadedi; i++)
+            {
+                Console.Write($"{i+1}. elemanı gir ");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+                Console.Write("targeti yaz ");
+                int target = Convert.ToInt32(Console.ReadLine());
+                bool found = false;
+
+                for (int i = 0; i < sayiadedi; i++)
+            {
+                for (int j = i + 1; j < sayiadedi; j++)
+            {
+                if (array[i] + array[j] == target)
+                {
+                    Console.WriteLine($"Dizideki elemanlar {i} ve {j} toplamı {target} ediyor.");
+                    found = true;
+                }
+            }
+            }
+
+                if (!found)
+                {
+                    Console.WriteLine("herhangi iki sayı targeti vermiyor");
+                }
+    }
+
+    static void siralama()
+            {
+                Console.Write("Kaç elemanlı bir dizi oluşturmak istiyorsunuz ");
+                int sayiadedi = Convert.ToInt32(Console.ReadLine());
+
+                int[] array = new int[sayiadedi];
+
+                for (int i = 0; i < sayiadedi; i++)
+            {
+                Console.Write($"{i+1}. elemanı gir ");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+                int min = array.Min(); 
+                int max = array.Max(); 
+
+                Console.WriteLine($"Dizideki en küçük eleman {min} ve en büyük eleman {max}");
+                
+    }
+
+
 
 
     static void mutluturkiye(int value)
