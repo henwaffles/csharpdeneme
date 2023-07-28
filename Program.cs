@@ -297,6 +297,8 @@ namespace menu
                 {
                     Console.WriteLine("herhangi iki sayı targeti vermiyor");
                 }
+            mutluturkiye(i);
+            mutluturkiye(j);
     }
 
     static void siralama()
@@ -316,7 +318,9 @@ namespace menu
                 int max = array.Max(); 
 
                 Console.WriteLine($"Dizideki en küçük eleman {min} ve en büyük eleman {max}");
-                
+            
+            mutluturkiye(i);
+            mutluturkiye(j);
     }
 
 
